@@ -3,8 +3,30 @@ package com.epam.rd.autotasks.array;
 public class IntArrayUtil {
 
 	public static int maximumDistance(int[] array) {
-		// TODO: Implement this method.
-		return 0;
+		
+        if (array == null) array = new int[]{};
+
+        for (int arr : array) {
+            if (arr < 0) {
+                throw new IllegalArgumentException();
+            }
+        }
+
+        if (array.length == 0 || array.length == 1) {
+            return 0;
+        }
+
+        int maxDigit = 0;
+        int index = 0;
+
+
+        for (int i = 0; i < array.length; i++) {
+            if (maxDigit <= array[i]) {
+                maxDigit = array[i];
+                index = i;
+            }
+        }
+        return index -1;
 	}
 
 	public static void main(String[] args) {

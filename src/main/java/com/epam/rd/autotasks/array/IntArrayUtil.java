@@ -11,8 +11,8 @@ public class IntArrayUtil {
             return 0;
         }
 
-        int max_num1 = 0;
-        int max_num2 = 0;
+        int max_num1 = Integer.MIN_VALUE;
+        int max_num2 = Integer.MIN_VALUE;
         int dist = 0;
         int first;
         int second = 0;

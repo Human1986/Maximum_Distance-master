@@ -4,29 +4,34 @@ public class IntArrayUtil {
 
 	public static int maximumDistance(int[] array) {
 		
-        if (array == null) array = new int[]{};
+         if (array == null) array = new int[]{};
 
-        for (int arr : array) {
-            if (arr < 0) {
-                throw new IllegalArgumentException();
-            }
-        }
 
         if (array.length == 0 || array.length == 1) {
             return 0;
         }
 
-        int maxDigit = 0;
-        int index = 0;
+        int max_num1 = 0;
+        int max_num2 = 0;
+        int dist = 0;
+        int first;
+        int second = 0;
 
 
         for (int i = 0; i < array.length; i++) {
-            if (maxDigit <= array[i]) {
-                maxDigit = array[i];
-                index = i;
+            if (max_num1 < array[i]) {
+                max_num1 = array[i];
+                first = i;
+                for (int j = array.length - 1; j > 0; j--) {
+                    if (max_num2 < array[j]) {
+                        max_num2 = array[j];
+                        second = j;
+                    }
+                }
+                dist = second - first;
             }
         }
-        return index -1;
+        return dist;
 	}
 
 	public static void main(String[] args) {
